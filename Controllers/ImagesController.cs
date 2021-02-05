@@ -1,15 +1,14 @@
 ﻿using DropboxApp.Models;
-using DropboxApp.Helpers;
-using Microsoft.AspNetCore.Mvc;
+using ImageResizeWebApp.Helpers;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Options;
 
-namespace DropboxApp.Controllers
+namespace ImageResizeWebApp.Controllers
 {
     [Route("api/[controller]")]
     public class ImagesController : Controller
@@ -86,7 +85,7 @@ namespace DropboxApp.Controllers
                     return BadRequest("Please provide a name for your image container in Azure blob storage.");
 
                 List<string> thumbnailUrls = await StorageHelper.GetThumbNailUrls(storageConfig);
-                return new ObjectResult(thumbnailUrls);
+                return new ObjectResult(thumbnailUrls);            
             }
             catch (Exception ex)
             {

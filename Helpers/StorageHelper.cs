@@ -9,10 +9,11 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DropboxApp.Helpers
+namespace ImageResizeWebApp.Helpers
 {
     public static class StorageHelper
     {
+
         public static bool IsImage(IFormFile file)
         {
             if (file.ContentType.Contains("image"))
@@ -26,7 +27,7 @@ namespace DropboxApp.Helpers
         }
 
         public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName,
-                                                           AzureStorageConfig _storageConfig)
+                                                            AzureStorageConfig _storageConfig)
         {
             // Create a URI to the blob
             Uri blobUri = new Uri("https://" +
